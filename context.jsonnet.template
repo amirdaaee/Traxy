@@ -1,0 +1,12 @@
+{
+    name: "traefik-relay",
+    remote_address:,
+    remote_sni: "",
+    listen_port:"445",
+    cert: |||
+
+    |||,
+    key: |||
+
+    |||
+}
