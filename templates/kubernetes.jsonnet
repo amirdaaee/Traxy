@@ -21,8 +21,8 @@ local
       TRAEFIK_PROVIDERS_FILE_DIRECTORY: '/data',
       TRAEFIK_PROVIDERS_FILE_WATCH: 'false',
       TRAEFIK_LOG: 'true',
-      TRAEFIK_LOG_LEVEL: 'WARNING',
-      TRAEFIK_ACCESSLOG: 'false',
+      TRAEFIK_LOG_LEVEL: context.log_level,
+      TRAEFIK_ACCESSLOG: context.access_log,
     },
   },
   cm_conf = {
@@ -42,7 +42,7 @@ local
                 {{ end }}
                 passHostHeader: false
                 servers:
-                - url: {{ "REMOTE_ADDRESS" }}
+                - url: {{ env "REMOTE_ADDRESS" }}
           {{ if env "REMOTE_SNI" }}
           serversTransports:
             relay-transport:
@@ -73,7 +73,7 @@ local
       },
   },
   deploy = {
-    apiVersion: enums.apiVersion,
+    apiVersion: "apps/"+enums.apiVersion,
     kind: enums.Deployment,
     metadata:
       { name: context.name + '-deploy' },

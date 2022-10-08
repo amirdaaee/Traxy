@@ -3,6 +3,8 @@
     remote_address:,
     remote_sni: "",
     listen_port:"445",
+    log_level: "WARNING",
+    access_log: "false",
     cert: |||
 
     |||,
