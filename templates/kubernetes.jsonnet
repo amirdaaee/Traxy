@@ -105,9 +105,9 @@ local
             ],
             resources: {
               limits: {
-                cpu: '100m',
+                cpu: '200m',
                 'ephemeral-storage': '100M',
-                memory: '200M',
+                memory: '300M',
               },
               requests: self.limits,
             },

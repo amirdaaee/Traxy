@@ -2,7 +2,7 @@
     name: "traefik-relay",
     remote_address:,
     remote_sni: "",
-    listen_port:"445",
+    listen_port: 445, // it should be an integer not string!
     log_level: "WARNING",
     access_log: "false",
     cert: |||
